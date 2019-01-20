@@ -3,24 +3,19 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="manifest" href="/manifest.json">
-        <script>
-if ('serviceWorker' in navigator)
-{
-  navigator.serviceWorker.register('/service-worker.js')
-  .then(function(registration)
-  {
-    console.log('Registration successful, scope is:', registration.scope);
-  })
-  .catch(function(error)
-  {
-    console.log('Service worker registration failed, error:', error);
-  });
-}
-        </script>
     </head>
     <body>
+      <script crossorigin="anonymous" src="https://www.truthforlife.org/mobile-app/broadcasts/json/"></script>
       <noscript>
         javascript disabled :(
       </noscript>
+      <script>
+        if ('serviceWorker' in navigator)
+        {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js');
+          });
+        }
+        </script>
     </body>
 </html>
